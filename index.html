@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raffa Adya Avrianzha - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      scroll-behavior: smooth;
+    }
+    
+    .font-heading {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .font-body {
+      font-family: 'Outfit', sans-serif;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .skill-bar {
+      background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);
+      transition: width 1s ease-out;
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #f59e0b;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .card-glow {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card-glow::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .card-glow:hover::before {
+      left: 100%;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body bg-[#0f0f0f] text-gray-100 overflow-x-hidden">
+  <div id="app-wrapper" class="w-full h-full overflow-auto"><!-- Header / Navigation -->
+   <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-[#0f0f0f]/90 backdrop-blur-md border-b border-gray-800/50">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"><a href="#home" id="site-name" class="font-heading text-2xl font-bold gradient-text">Raffa Adya</a> <!-- Desktop Menu -->
+     <ul class="hidden md:flex items-center gap-8">
+      <li><a href="#home" class="nav-link text-gray-300 hover:text-amber-500 transition-colors">Home</a></li>
+      <li><a href="#about" class="nav-link text-gray-300 hover:text-amber-500 transition-colors">About</a></li>
+      <li><a href="#skills" class="nav-link text-gray-300 hover:text-amber-500 transition-colors">Skills</a></li>
+      <li><a href="#portfolio" class="nav-link text-gray-300 hover:text-amber-500 transition-colors">Portfolio</a></li>
+      <li><a href="#experience" class="nav-link text-gray-300 hover:text-amber-500 transition-colors">Experience</a></li>
+      <li><a href="#contact" class="nav-link text-gray-300 hover:text-amber-500 transition-colors">Contact</a></li>
+     </ul><!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-amber-500 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg></button>
+    </nav><!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#1a1a1a] border-t border-gray-800">
+     <ul class="px-6 py-4 space-y-4">
+      <li><a href="#home" class="block text-gray-300 hover:text-amber-500 transition-colors">Home</a></li>
+      <li><a href="#about" class="block text-gray-300 hover:text-amber-500 transition-colors">About</a></li>
+      <li><a href="#skills" class="block text-gray-300 hover:text-amber-500 transition-colors">Skills</a></li>
+      <li><a href="#portfolio" class="block text-gray-300 hover:text-amber-500 transition-colors">Portfolio</a></li>
+      <li><a href="#experience" class="block text-gray-300 hover:text-amber-500 transition-colors">Experience</a></li>
+      <li><a href="#contact" class="block text-gray-300 hover:text-amber-500 transition-colors">Contact</a></li>
+     </ul>
+    </div>
+   </header><!-- Hero Section -->
+   <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"><!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+     <div class="absolute top-20 left-10 w-72 h-72 bg-amber-500 rounded-full blur-3xl"></div>
+     <div class="absolute bottom-20 right-10 w-96 h-96 bg-orange-600 rounded-full blur-3xl"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 py-20 flex flex-col lg:flex-row items-center gap-12 relative z-10"><!-- Profile Image -->
+     <div class="fade-in-up opacity-0 delay-100">
+      <div class="relative">
+       <div class="w-64 h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 p-1 animate-float">
+        <div class="w-full h-full rounded-full bg-[#1a1a1a] flex items-center justify-center overflow-hidden"><!-- Profile Illustration -->
+         <svg viewbox="0 0 200 200" class="w-full h-full"><defs>
+           <lineargradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#e8c4a0" />
+            <stop offset="100%" style="stop-color:#d4a574" />
+           </lineargradient>
+           <lineargradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#2d2d2d" />
+            <stop offset="100%" style="stop-color:#1a1a1a" />
+           </lineargradient>
+          </defs> <!-- Background --> <circle cx="100" cy="100" r="95" fill="#252525" /> <!-- Hair Back --> <ellipse cx="100" cy="75" rx="55" ry="50" fill="url(#hairGrad)" /> <!-- Face --> <ellipse cx="100" cy="95" rx="45" ry="50" fill="url(#skinGrad)" /> <!-- Hair Front --> <path d="M55 70 Q60 50 100 45 Q140 50 145 70 Q145 55 100 40 Q55 55 55 70" fill="url(#hairGrad)" /> <!-- Eyebrows --> <path d="M70 85 Q80 82 90 85" stroke="#3d3d3d" stroke-width="2" fill="none" /> <path d="M110 85 Q120 82 130 85" stroke="#3d3d3d" stroke-width="2" fill="none" /> <!-- Eyes --> <ellipse cx="80" cy="95" rx="8" ry="5" fill="#fff" /> <ellipse cx="120" cy="95" rx="8" ry="5" fill="#fff" /> <circle cx="80" cy="95" r="3" fill="#2d2d2d" /> <circle cx="120" cy="95" r="3" fill="#2d2d2d" /> <!-- Nose --> <path d="M100 95 Q103 108 100 112 Q97 108 100 95" stroke="#c9a87c" stroke-width="1" fill="none" /> <!-- Smile --> <path d="M85 125 Q100 135 115 125" stroke="#b8967a" stroke-width="2" fill="none" stroke-linecap="round" /> <!-- Shirt --> <path d="M50 170 Q50 150 100 145 Q150 150 150 170 L150 200 L50 200 Z" fill="#f59e0b" /> <!-- Collar --> <path d="M85 145 L100 160 L115 145" stroke="#0f0f0f" stroke-width="2" fill="none" />
+         </svg>
+        </div>
+       </div><!-- Decorative Elements -->
+       <div class="absolute -top-4 -right-4 w-8 h-8 bg-amber-500 rounded-full opacity-60"></div>
+       <div class="absolute -bottom-2 -left-2 w-6 h-6 bg-orange-600 rounded-full opacity-60"></div>
+      </div>
+     </div><!-- Hero Content -->
+     <div class="text-center lg:text-left">
+      <p class="fade-in-up opacity-0 delay-200 text-amber-500 font-medium mb-2">👋 Halo, saya</p>
+      <h1 id="hero-title" class="fade-in-up opacity-0 delay-300 font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Raffa Adya <span class="gradient-text">Avrianzha</span></h1>
+      <p id="hero-subtitle" class="fade-in-up opacity-0 delay-400 text-xl md:text-2xl text-gray-400 mb-4">Siswa SMAN 1 Subang</p>
+      <p id="hero-greeting" class="fade-in-up opacity-0 delay-500 text-gray-500 mb-8 max-w-md mx-auto lg:mx-0">Hai, selamat datang di portofolio saya. Saya seorang siswa yang passionate dalam musik dan olahraga.</p>
+      <div class="fade-in-up opacity-0 delay-500 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"><a href="#portfolio" class="px-8 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 hover:-translate-y-1"> Lihat Portofolio </a> <a href="#contact" class="px-8 py-3 border-2 border-amber-500 text-amber-500 font-semibold rounded-full hover:bg-amber-500 hover:text-white transition-all duration-300"> Hubungi Saya </a>
+      </div>
+     </div>
+    </div><!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+     <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+     </svg>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" class="py-20 bg-[#1a1a1a]">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="text-center mb-16">
+      <p class="text-amber-500 font-medium mb-2">Kenali Saya</p>
+      <h2 id="about-title" class="font-heading text-3xl md:text-4xl font-bold">Tentang Saya</h2>
+     </div>
+     <div class="grid lg:grid-cols-2 gap-12 items-center"><!-- About Image/Illustration -->
+      <div class="relative">
+       <div class="bg-gradient-to-br from-amber-500/20 to-orange-600/20 rounded-2xl p-8">
+        <div class="grid grid-cols-2 gap-4">
+         <div class="bg-[#252525] rounded-xl p-6 text-center hover-lift card-glow"><span class="text-4xl mb-2 block">🎸</span>
+          <p class="text-gray-300 font-medium">Gitar Acoustic</p>
+         </div>
+         <div class="bg-[#252525] rounded-xl p-6 text-center hover-lift card-glow"><span class="text-4xl mb-2 block">🎵</span>
+          <p class="text-gray-300 font-medium">Bass Guitar</p>
+         </div>
+         <div class="bg-[#252525] rounded-xl p-6 text-center hover-lift card-glow"><span class="text-4xl mb-2 block">🏀</span>
+          <p class="text-gray-300 font-medium">Basketball</p>
+         </div>
+         <div class="bg-[#252525] rounded-xl p-6 text-center hover-lift card-glow"><span class="text-4xl mb-2 block">⚽</span>
+          <p class="text-gray-300 font-medium">Futsal</p>
+         </div>
+        </div>
+       </div>
+      </div><!-- About Content -->
+      <div>
+       <h3 class="font-heading text-2xl font-bold mb-4 text-amber-500">Salam Kenal!</h3>
+       <p class="text-gray-400 mb-6 leading-relaxed">Saya <span class="text-white font-medium">Raffa Adya Avrianzha</span>, lahir di Subang pada tanggal 14 April. Saya anak ke-2 dari 3 bersaudara. Saat ini saya merupakan siswa SMAN 1 Subang yang duduk di bangku kelas 12-2.</p>
+       <p class="text-gray-400 mb-6 leading-relaxed">Saya memiliki hobi bermain <span class="text-amber-500">gitar acoustic</span> dan <span class="text-amber-500">gitar bass</span>, serta aktif dalam olahraga seperti <span class="text-amber-500">basket</span> dan <span class="text-amber-500">futsal</span>.</p>
+       <div class="bg-[#252525] rounded-xl p-6 mb-6">
+        <h4 class="font-semibold text-white mb-3">🎯 Minat &amp; Tujuan</h4>
+        <div class="flex flex-wrap gap-2"><span class="px-4 py-2 bg-amber-500/20 text-amber-500 rounded-full text-sm">Keperawatan</span> <span class="px-4 py-2 bg-amber-500/20 text-amber-500 rounded-full text-sm">Hukum</span> <span class="px-4 py-2 bg-amber-500/20 text-amber-500 rounded-full text-sm">Musisi</span>
+        </div>
+       </div>
+       <div class="bg-[#252525] rounded-xl p-6">
+        <h4 class="font-semibold text-white mb-3">🎓 Riwayat Pendidikan</h4>
+        <ul class="space-y-2 text-gray-400">
+         <li class="flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-full"></span> SDN Pagadean</li>
+         <li class="flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-full"></span> SMPN 4 Subang</li>
+         <li class="flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-full"></span> SMAN 1 Subang (Sekarang)</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Skills Section -->
+   <section id="skills" class="py-20 bg-[#0f0f0f]">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="text-center mb-16">
+      <p class="text-amber-500 font-medium mb-2">Kemampuan Saya</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold">Skills</h2>
+     </div>
+     <div class="grid md:grid-cols-2 gap-12"><!-- Hard Skills -->
+      <div>
+       <h3 class="font-heading text-xl font-bold mb-6 flex items-center gap-2"><span class="text-amber-500">💻</span> Hard Skills</h3>
+       <div class="space-y-6">
+        <div>
+         <div class="flex justify-between mb-2"><span class="text-gray-300">HTML</span> <span class="text-amber-500">85%</span>
+         </div>
+         <div class="h-3 bg-[#252525] rounded-full overflow-hidden">
+          <div class="skill-bar h-full rounded-full" style="width: 85%"></div>
+         </div>
+        </div>
+        <div>
+         <div class="flex justify-between mb-2"><span class="text-gray-300">CSS</span> <span class="text-amber-500">80%</span>
+         </div>
+         <div class="h-3 bg-[#252525] rounded-full overflow-hidden">
+          <div class="skill-bar h-full rounded-full" style="width: 80%"></div>
+         </div>
+        </div>
+        <div>
+         <div class="flex justify-between mb-2"><span class="text-gray-300">JavaScript</span> <span class="text-amber-500">70%</span>
+         </div>
+         <div class="h-3 bg-[#252525] rounded-full overflow-hidden">
+          <div class="skill-bar h-full rounded-full" style="width: 70%"></div>
+         </div>
+        </div>
+        <div>
+         <div class="flex justify-between mb-2"><span class="text-gray-300">Desain Grafis</span> <span class="text-amber-500">75%</span>
+         </div>
+         <div class="h-3 bg-[#252525] rounded-full overflow-hidden">
+          <div class="skill-bar h-full rounded-full" style="width: 75%"></div>
+         </div>
+        </div>
+        <div>
+         <div class="flex justify-between mb-2"><span class="text-gray-300">Musik (Gitar &amp; Bass)</span> <span class="text-amber-500">90%</span>
+         </div>
+         <div class="h-3 bg-[#252525] rounded-full overflow-hidden">
+          <div class="skill-bar h-full rounded-full" style="width: 90%"></div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Soft Skills -->
+      <div>
+       <h3 class="font-heading text-xl font-bold mb-6 flex items-center gap-2"><span class="text-amber-500">🧠</span> Soft Skills</h3>
+       <div class="grid grid-cols-2 gap-4">
+        <div class="bg-[#1a1a1a] rounded-xl p-6 text-center hover-lift card-glow border border-gray-800">
+         <div class="w-16 h-16 mx-auto mb-4 bg-amber-500/20 rounded-full flex items-center justify-center"><span class="text-2xl">💬</span>
+         </div>
+         <h4 class="font-semibold text-white">Komunikasi</h4>
+        </div>
+        <div class="bg-[#1a1a1a] rounded-xl p-6 text-center hover-lift card-glow border border-gray-800">
+         <div class="w-16 h-16 mx-auto mb-4 bg-amber-500/20 rounded-full flex items-center justify-center"><span class="text-2xl">🤝</span>
+         </div>
+         <h4 class="font-semibold text-white">Kerja Tim</h4>
+        </div>
+        <div class="bg-[#1a1a1a] rounded-xl p-6 text-center hover-lift card-glow border border-gray-800">
+         <div class="w-16 h-16 mx-auto mb-4 bg-amber-500/20 rounded-full flex items-center justify-center"><span class="text-2xl">💡</span>
+         </div>
+         <h4 class="font-semibold text-white">Kreativitas</h4>
+        </div>
+        <div class="bg-[#1a1a1a] rounded-xl p-6 text-center hover-lift card-glow border border-gray-800">
+         <div class="w-16 h-16 mx-auto mb-4 bg-amber-500/20 rounded-full flex items-center justify-center"><span class="text-2xl">⏰</span>
+         </div>
+         <h4 class="font-semibold text-white">Manajemen Waktu</h4>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Portfolio Section -->
+   <section id="portfolio" class="py-20 bg-[#1a1a1a]">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="text-center mb-16">
+      <p class="text-amber-500 font-medium mb-2">Karya Saya</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold">Portfolio</h2>
+     </div>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- Portfolio Item 1 -->
+      <div class="bg-[#252525] rounded-2xl overflow-hidden hover-lift card-glow group">
+       <div class="h-48 bg-gradient-to-br from-amber-500/30 to-orange-600/30 flex items-center justify-center"><span class="text-6xl group-hover:scale-110 transition-transform">🎸</span>
+       </div>
+       <div class="p-6"><span class="text-amber-500 text-sm font-medium">Musik</span>
+        <h3 class="font-heading text-xl font-bold mt-2 mb-3">Band Performance</h3>
+        <p class="text-gray-400 text-sm mb-4">Penampilan band di berbagai acara sekolah dan event besar di Kabupaten Subang.</p>
+        <div class="flex flex-wrap gap-2"><span class="px-3 py-1 bg-[#1a1a1a] text-gray-400 rounded-full text-xs">Gitar</span> <span class="px-3 py-1 bg-[#1a1a1a] text-gray-400 rounded-full text-xs">Bass</span> <span class="px-3 py-1 bg-[#1a1a1a] text-gray-400 rounded-full text-xs">Live</span>
+        </div>
+       </div>
+      </div><!-- Portfolio Item 2 -->
+      <div class="bg-[#252525] rounded-2xl overflow-hidden hover-lift card-glow group">
+       <div class="h-48 bg-gradient-to-br from-blue-500/30 to-purple-600/30 flex items-center justify-center"><span class="text-6xl group-hover:scale-110 transition-transform">💻</span>
+       </div>
+       <div class="p-6"><span class="text-amber-500 text-sm font-medium">Web Development</span>
+        <h3 class="font-heading text-xl font-bold mt-2 mb-3">Personal Portfolio</h3>
+        <p class="text-gray-400 text-sm mb-4">Website portfolio pribadi menggunakan HTML, CSS, dan JavaScript.</p>
+        <div class="flex flex-wrap gap-2"><span class="px-3 py-1 bg-[#1a1a1a] text-gray-400 rounded-full text-xs">HTML</span> <span class="px-3 py-1 bg-[#1a1a1a] text-gray-400 rounded-full text-xs">CSS</span> <span class="px-3 py-1 bg-[#1a1a1a] text-gray-400 rounded-full text-xs">JavaScript</span>
+        </div>
+       </div>
+      </div><!-- Portfolio Item 3 -->
+      <div class="bg-[#252525] rounded-2xl overflow-hidden hover-lift card-glow group">
+       <div class="h-48 bg-gradient-to-br from-green-500/30 to-teal-600/30 flex items-center justify-center"><span class="text-6xl group-hover:scale-110 transition-transform">🎨</span>
+       </div>
+       <div class="p-6"><span class="text-amber-500 text-sm font-medium">Design</span>
+        <h3 class="font-heading text-xl font-bold mt-2 mb-3">Graphic Design</h3>
+        <p class="text-gray-400 text-sm mb-4">Desain poster, banner, dan konten visual untuk berbagai keperluan.</p>
+        <div class="flex flex-wrap gap-2"><span class="px-3 py-1 bg-[#1a1a1a] text-gray-400 rounded-full text-xs">Canva</span> <span class="px-3 py-1 bg-[#1a1a1a] text-gray-400 rounded-full text-xs">Poster</span> <span class="px-3 py-1 bg-[#1a1a1a] text-gray-400 rounded-full text-xs">Banner</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Experience Section -->
+   <section id="experience" class="py-20 bg-[#0f0f0f]">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="text-center mb-16">
+      <p class="text-amber-500 font-medium mb-2">Perjalanan Saya</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold">Pengalaman &amp; Prestasi</h2>
+     </div>
+     <div class="relative"><!-- Timeline Line -->
+      <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-amber-500 to-orange-600"></div><!-- Timeline Items -->
+      <div class="space-y-12"><!-- Item 1 -->
+       <div class="relative flex flex-col md:flex-row items-start md:items-center gap-8">
+        <div class="md:w-1/2 md:text-right md:pr-12 pl-12 md:pl-0">
+         <div class="bg-[#1a1a1a] rounded-xl p-6 hover-lift border border-gray-800"><span class="text-amber-500 font-medium">🎤 Performance</span>
+          <h3 class="font-heading text-xl font-bold mt-2">Subang Campus Expo</h3>
+          <p class="text-gray-400 mt-2">Tampil band di acara besar se-Kabupaten Subang yang diikuti oleh berbagai sekolah.</p>
+         </div>
+        </div>
+        <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-amber-500 rounded-full -translate-x-1/2 border-4 border-[#0f0f0f]"></div>
+        <div class="md:w-1/2 md:pl-12 pl-12"><span class="text-gray-500">Event Terbesar</span>
+        </div>
+       </div><!-- Item 2 -->
+       <div class="relative flex flex-col md:flex-row items-start md:items-center gap-8">
+        <div class="md:w-1/2 md:text-right md:pr-12 pl-12 md:pl-0 md:order-1"><span class="text-gray-500">3x Penampilan</span>
+        </div>
+        <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-amber-500 rounded-full -translate-x-1/2 border-4 border-[#0f0f0f]"></div>
+        <div class="md:w-1/2 md:pl-12 pl-12 md:order-2">
+         <div class="bg-[#1a1a1a] rounded-xl p-6 hover-lift border border-gray-800"><span class="text-amber-500 font-medium">🎵 Performance</span>
+          <h3 class="font-heading text-xl font-bold mt-2">Band SMAN 1 Subang</h3>
+          <p class="text-gray-400 mt-2">Tampil band sebanyak 3 kali di berbagai acara SMAN 1 Subang.</p>
+         </div>
+        </div>
+       </div><!-- Item 3 -->
+       <div class="relative flex flex-col md:flex-row items-start md:items-center gap-8">
+        <div class="md:w-1/2 md:text-right md:pr-12 pl-12 md:pl-0">
+         <div class="bg-[#1a1a1a] rounded-xl p-6 hover-lift border border-gray-800"><span class="text-amber-500 font-medium">⭐ Guest Star</span>
+          <h3 class="font-heading text-xl font-bold mt-2">SMAN 1 Tanjungsiang</h3>
+          <p class="text-gray-400 mt-2">Diundang sebagai guest star untuk tampil di acara SMAN 1 Tanjungsiang.</p>
+         </div>
+        </div>
+        <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-amber-500 rounded-full -translate-x-1/2 border-4 border-[#0f0f0f]"></div>
+        <div class="md:w-1/2 md:pl-12 pl-12"><span class="text-gray-500">Guest Star</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact Section -->
+   <section id="contact" class="py-20 bg-[#1a1a1a]">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="text-center mb-16">
+      <p class="text-amber-500 font-medium mb-2">Mari Terhubung</p>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold">Hubungi Saya</h2>
+     </div>
+     <div class="grid md:grid-cols-2 gap-12"><!-- Contact Info -->
+      <div>
+       <h3 class="font-heading text-xl font-bold mb-6">Informasi Kontak</h3>
+       <p class="text-gray-400 mb-8">Jangan ragu untuk menghubungi saya. Saya selalu terbuka untuk diskusi, kolaborasi, atau sekadar ngobrol!</p>
+       <div class="space-y-6"><a href="mailto:raffa@email.com" class="flex items-center gap-4 p-4 bg-[#252525] rounded-xl hover:bg-[#2a2a2a] transition-colors group">
+         <div class="w-12 h-12 bg-amber-500/20 rounded-full flex items-center justify-center group-hover:bg-amber-500/30 transition-colors"><span class="text-xl">📧</span>
+         </div>
+         <div>
+          <p class="text-gray-500 text-sm">Email</p>
+          <p id="contact-email" class="text-white font-medium">raffa@email.com</p>
+         </div></a> <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 bg-[#252525] rounded-xl hover:bg-[#2a2a2a] transition-colors group">
+         <div class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center group-hover:bg-green-500/30 transition-colors"><span class="text-xl">💬</span>
+         </div>
+         <div>
+          <p class="text-gray-500 text-sm">WhatsApp</p>
+          <p id="contact-phone" class="text-white font-medium">+62 812 3456 7890</p>
+         </div></a> <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 bg-[#252525] rounded-xl hover:bg-[#2a2a2a] transition-colors group">
+         <div class="w-12 h-12 bg-pink-500/20 rounded-full flex items-center justify-center group-hover:bg-pink-500/30 transition-colors"><span class="text-xl">📸</span>
+         </div>
+         <div>
+          <p class="text-gray-500 text-sm">Instagram</p>
+          <p class="text-white font-medium">@raffaadya</p>
+         </div></a>
+       </div>
+      </div><!-- Contact Form -->
+      <div>
+       <h3 class="font-heading text-xl font-bold mb-6">Kirim Pesan</h3>
+       <form id="contact-form" class="space-y-6">
+        <div><label for="name" class="block text-gray-400 mb-2">Nama</label> <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-[#252525] border border-gray-700 rounded-xl focus:outline-none focus:border-amber-500 transition-colors text-white placeholder-gray-500" placeholder="Masukkan nama Anda">
+        </div>
+        <div><label for="email" class="block text-gray-400 mb-2">Email</label> <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-[#252525] border border-gray-700 rounded-xl focus:outline-none focus:border-amber-500 transition-colors text-white placeholder-gray-500" placeholder="Masukkan email Anda">
+        </div>
+        <div><label for="message" class="block text-gray-400 mb-2">Pesan</label> <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 bg-[#252525] border border-gray-700 rounded-xl focus:outline-none focus:border-amber-500 transition-colors text-white placeholder-gray-500 resize-none" placeholder="Tulis pesan Anda..."></textarea>
+        </div><button type="submit" class="w-full py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 hover:-translate-y-1"> Kirim Pesan ✉️ </button>
+       </form>
+       <div id="form-success" class="hidden mt-4 p-4 bg-green-500/20 border border-green-500/50 rounded-xl text-green-400 text-center">
+        ✅ Pesan terkirim! Terima kasih telah menghubungi saya.
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-8 bg-[#0f0f0f] border-t border-gray-800">
+    <div class="max-w-6xl mx-auto px-6">
+     <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-gray-500 text-center md:text-left">© 2024 <span class="text-amber-500 font-medium">Raffa Adya Avrianzha</span>. All rights reserved.</p>
+      <div class="flex items-center gap-4"><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-[#1a1a1a] rounded-full flex items-center justify-center hover:bg-amber-500/20 transition-colors group">
+        <svg class="w-5 h-5 text-gray-400 group-hover:text-amber-500 transition-colors" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg></a> <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-[#1a1a1a] rounded-full flex items-center justify-center hover:bg-amber-500/20 transition-colors group">
+        <svg class="w-5 h-5 text-gray-400 group-hover:text-amber-500 transition-colors" fill="currentColor" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+        </svg></a> <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-[#1a1a1a] rounded-full flex items-center justify-center hover:bg-amber-500/20 transition-colors group">
+        <svg class="w-5 h-5 text-gray-400 group-hover:text-amber-500 transition-colors" fill="currentColor" viewbox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </svg></a>
+      </div>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      site_name: 'Raffa Adya',
+      hero_title: 'Raffa Adya Avrianzha',
+      hero_subtitle: 'Siswa SMAN 1 Subang',
+      hero_greeting: 'Hai, selamat datang di portofolio saya. Saya seorang siswa yang passionate dalam musik dan olahraga.',
+      about_title: 'Tentang Saya',
+      contact_email: 'raffa@email.com',
+      contact_phone: '+62 812 3456 7890',
+      background_color: '#0f0f0f',
+      surface_color: '#1a1a1a',
+      text_color: '#f3f4f6',
+      primary_action_color: '#f59e0b',
+      secondary_action_color: '#d97706'
+    };
+    
+    // Initialize Element SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => {
+          // Update site name
+          const siteName = document.getElementById('site-name');
+          if (siteName) siteName.textContent = config.site_name || defaultConfig.site_name;
+          
+          // Update hero section
+          const heroTitle = document.getElementById('hero-title');
+          if (heroTitle) {
+            const name = config.hero_title || defaultConfig.hero_title;
+            const nameParts = name.split(' ');
+            if (nameParts.length >= 2) {
+              heroTitle.innerHTML = `${nameParts.slice(0, -1).join(' ')} <span class="gradient-text">${nameParts[nameParts.length - 1]}</span>`;
+            } else {
+              heroTitle.textContent = name;
+            }
+          }
+          
+          const heroSubtitle = document.getElementById('hero-subtitle');
+          if (heroSubtitle) heroSubtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+          
+          const heroGreeting = document.getElementById('hero-greeting');
+          if (heroGreeting) heroGreeting.textContent = config.hero_greeting || defaultConfig.hero_greeting;
+          
+          // Update about section
+          const aboutTitle = document.getElementById('about-title');
+          if (aboutTitle) aboutTitle.textContent = config.about_title || defaultConfig.about_title;
+          
+          // Update contact info
+          const contactEmail = document.getElementById('contact-email');
+          if (contactEmail) contactEmail.textContent = config.contact_email || defaultConfig.contact_email;
+          
+          const contactPhone = document.getElementById('contact-phone');
+          if (contactPhone) contactPhone.textContent = config.contact_phone || defaultConfig.contact_phone;
+          
+          // Apply colors
+          const bgColor = config.background_color || defaultConfig.background_color;
+          const surfaceColor = config.surface_color || defaultConfig.surface_color;
+          const textColor = config.text_color || defaultConfig.text_color;
+          const primaryColor = config.primary_action_color || defaultConfig.primary_action_color;
+          const secondaryColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+          
+          document.documentElement.style.setProperty('--bg-color', bgColor);
+          document.documentElement.style.setProperty('--surface-color', surfaceColor);
+          document.documentElement.style.setProperty('--text-color', textColor);
+          document.documentElement.style.setProperty('--primary-color', primaryColor);
+          document.documentElement.style.setProperty('--secondary-color', secondaryColor);
+        },
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => window.elementSdk.setConfig({ background_color: value })
+            },
+            {
+              get: () => config.surface_color || defaultConfig.surface_color,
+              set: (value) => window.elementSdk.setConfig({ surface_color: value })
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => window.elementSdk.setConfig({ text_color: value })
+            },
+            {
+              get: () => config.primary_action_color || defaultConfig.primary_action_color,
+              set: (value) => window.elementSdk.setConfig({ primary_action_color: value })
+            },
+            {
+              get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+              set: (value) => window.elementSdk.setConfig({ secondary_action_color: value })
+            }
+          ],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['site_name', config.site_name || defaultConfig.site_name],
+          ['hero_title', config.hero_title || defaultConfig.hero_title],
+          ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+          ['hero_greeting', config.hero_greeting || defaultConfig.hero_greeting],
+          ['about_title', config.about_title || defaultConfig.about_title],
+          ['contact_email', config.contact_email || defaultConfig.contact_email],
+          ['contact_phone', config.contact_phone || defaultConfig.contact_phone]
+        ])
+      });
+    }
+    
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close mobile menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+    
+    // Contact form handling
+    const contactForm = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+    
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Show success message
+      formSuccess.classList.remove('hidden');
+      contactForm.reset();
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        formSuccess.classList.add('hidden');
+      }, 5000);
+    });
+    
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Header scroll effect
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > 50) {
+        header.classList.add('shadow-lg');
+      } else {
+        header.classList.remove('shadow-lg');
+      }
+      
+      lastScroll = currentScroll;
+    });
+    
+    // Animate skill bars on scroll
+    const observerOptions = {
+      threshold: 0.5
+    };
+    
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.skill-bar').forEach(bar => {
+            bar.style.width = bar.parentElement.dataset.width || bar.style.width;
+          });
+        }
+      });
+    }, observerOptions);
+    
+    const skillsSection = document.getElementById('skills');
+    if (skillsSection) {
+      skillObserver.observe(skillsSection);
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c86ce74829003d4',t:'MTc3MDE3Mjg2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
